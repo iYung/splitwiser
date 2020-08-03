@@ -14,16 +14,17 @@ import {
   Tab,
   Tabs,
   ScrollableTab,
+  View,
 } from "native-base";
 import * as Font from "expo-font";
 import { Ionicons } from "@expo/vector-icons";
 import { Provider } from "react-redux";
 import store from "./redux/store";
-import Summary from "./tabs/Summary";
-import Expenses from "./tabs/Expenses";
 import Footer from "./components/Footer";
 import AppBar from "./components/AppBar";
 import Router from "./tabs";
+import NewExpenseModal from "./components/NewExpenseModal";
+import NewRecurringExpenseModal from "./components/NewRecurringExpenseModal";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -51,9 +52,14 @@ export default class App extends React.Component {
       <Provider store={store}>
         <Container>
           <AppBar />
-          <Content>
+
+          <View style={{ flex: 1 }}>
             <Router />
-          </Content>
+          </View>
+
+          <NewExpenseModal />
+          <NewRecurringExpenseModal />
+
           <Footer />
         </Container>
       </Provider>

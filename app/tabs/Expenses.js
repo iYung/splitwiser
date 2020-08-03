@@ -77,10 +77,12 @@ export default function Expenses() {
   );
 
   return (
-    <List>
-      <ListItem itemDivider>
-        <Text>Expenses</Text>
-      </ListItem>
+    <View>
+      <List>
+        <ListItem itemDivider>
+          <Text>Expenses</Text>
+        </ListItem>
+      </List>
       <SwipeListView
         disableRightSwipe
         data={listData}
@@ -91,11 +93,8 @@ export default function Expenses() {
         previewOpenValue={-40}
         previewOpenDelay={3000}
         onRowDidOpen={onRowDidOpen}
-        refreshControl={
-          <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
-        }
       />
-    </List>
+    </View>
   );
 }
 

@@ -26,33 +26,33 @@ export default function BottomNav() {
   const tabState = useSelector((state) => state.tabs);
   const dispatch = useDispatch();
   return (
-      <Footer>
-        <FooterTab>
-          <Button
-            active={tabState.tab == 0}
-            vertical
-            onPress={() => dispatch(changeTab(0))}
-          >
-            <Icon name="md-document" />
-            <Text>Summary</Text>
-          </Button>
-          <Button
-            active={tabState.tab == 1}
-            vertical
-            onPress={() => dispatch(changeTab(1))}
-          >
-            <Icon name="md-cash" />
-            <Text>Expenses</Text>
-          </Button>
-          <Button
-            active={tabState.tab == 2}
-            vertical
-            onPress={() => dispatch(changeTab(2))}
-          >
-            <Icon name="md-calendar" />
-            <Text>Monthly</Text>
-          </Button>
-        </FooterTab>
-      </Footer>
+    <Footer>
+      <FooterTab>
+        <Button
+          active={tabState.tab == 0}
+          vertical
+          onPress={() => dispatch(changeTab(0))}
+        >
+          <Icon name="md-document" />
+          <Text>Summary</Text>
+        </Button>
+        <Button
+          active={tabState.tab == 1}
+          vertical
+          onPress={() => dispatch(changeTab(1))}
+        >
+          <Icon name="md-cash" />
+          <Text>Expenses</Text>
+        </Button>
+        <Button
+          active={tabState.tab == 2}
+          vertical
+          onPress={() => dispatch(changeTab(2))}
+        >
+          <Icon name="md-calendar" />
+          <Text>Monthly</Text>
+        </Button>
+      </FooterTab>
+    </Footer>
   );
 }
