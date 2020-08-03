@@ -6,8 +6,13 @@ import {
   List,
   Icon,
   Item,
+  Left,
+  Thumbnail,
+  Body,
+  Right,
   Picker,
   ListItem,
+  Button,
 } from "native-base";
 import {
   StyleSheet,
@@ -15,6 +20,7 @@ import {
   RefreshControl,
   View,
 } from "react-native";
+import ExpenseItem from "../components/ExpenseItem";
 
 import { SwipeListView } from "react-native-swipe-list-view";
 import MonthPicker from "../components/MonthPicker";
@@ -90,53 +96,9 @@ export default function Expenses() {
         <ListItem itemDivider>
           <Text>Expenses</Text>
         </ListItem>
-      </List>
-      <List>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
+        <ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" />
+        <ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" />
+        <ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" />
       </List>
     </View>
   );
