@@ -3,4 +3,8 @@ import tabs from "./tabs";
 import newExpenseModal from "./newExpenseModal";
 import newRecurringExpenseModal from "./newRecurringExpenseModal";
 
-export default combineReducers({ tabs, newExpenseModal, newRecurringExpenseModal });
+export default combineReducers({
+  tabs,
+  newExpenseModal,
+  newRecurringExpenseModal,
+});

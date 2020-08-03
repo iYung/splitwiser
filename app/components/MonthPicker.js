@@ -23,7 +23,9 @@ import { View } from "react-native";
 import BottomNav from "./BottomNav";
 
 export default function MonthPicker() {
-  const [selected2, setCount] = useState(undefined);
+  const date = new Date();
+  const [month, setMonth] = useState(date.getMonth() + 1);
+  const [year, setYear] = useState(date.getFullYear());
   const tabState = useSelector((state) => state.tabs);
   const dispatch = useDispatch();
   return (
@@ -31,42 +33,48 @@ export default function MonthPicker() {
       <ListItem itemDivider>
         <Text>Month</Text>
       </ListItem>
-      <Item picker>
-        <Picker
-          mode="dropdown"
-          iosIcon={<Icon name="arrow-down" />}
-          style={{ width: undefined }}
-          placeholder="Select your SIM"
-          placeholderStyle={{ color: "#bfc6ea" }}
-          placeholderIconColor="#007aff"
-          selectedValue={selected2}
-          onValueChange={(value) => setCount(value)}
-        >
-          <Picker.Item label="January" value="key0" />
-          <Picker.Item label="ATM Card" value="key1" />
-          <Picker.Item label="Debit Card" value="key2" />
-          <Picker.Item label="Credit Card" value="key3" />
-          <Picker.Item label="Net Banking" value="key4" />
-        </Picker>
-      </Item>
-      <Item picker>
-        <Picker
-          mode="dropdown"
-          iosIcon={<Icon name="arrow-down" />}
-          style={{ width: undefined }}
-          placeholder="Select your SIM"
-          placeholderStyle={{ color: "#bfc6ea" }}
-          placeholderIconColor="#007aff"
-          selectedValue={selected2}
-          onValueChange={(value) => setCount(value)}
-        >
-          <Picker.Item label="Wallet" value="key0" />
-          <Picker.Item label="ATM Card" value="key1" />
-          <Picker.Item label="Debit Card" value="key2" />
-          <Picker.Item label="Credit Card" value="key3" />
-          <Picker.Item label="Net Banking" value="key4" />
-        </Picker>
-      </Item>
+      <View style={{ paddingLeft: 12 }}>
+        <Item picker>
+          <Picker
+            mode="dropdown"
+            iosIcon={<Icon name="arrow-down" />}
+            style={{ width: undefined }}
+            placeholder="Select your SIM"
+            placeholderStyle={{ color: "#bfc6ea" }}
+            placeholderIconColor="#007aff"
+            selectedValue={month.toString()}
+            onValueChange={(value) => setMonth(parseInt(value))}
+          >
+            <Picker.Item label="January" value="1" />
+            <Picker.Item label="February" value="2" />
+            <Picker.Item label="March" value="3" />
+            <Picker.Item label="April" value="4" />
+            <Picker.Item label="May" value="5" />
+            <Picker.Item label="June" value="6" />
+            <Picker.Item label="July" value="7" />
+            <Picker.Item label="August" value="8" />
+            <Picker.Item label="September" value="9" />
+            <Picker.Item label="October" value="10" />
+            <Picker.Item label="November" value="11" />
+            <Picker.Item label="December" value="12" />
+          </Picker>
+        </Item>
+        <Item picker>
+          <Picker
+            mode="dropdown"
+            iosIcon={<Icon name="arrow-down" />}
+            style={{ width: undefined }}
+            placeholder="Select your SIM"
+            placeholderStyle={{ color: "#bfc6ea" }}
+            placeholderIconColor="#007aff"
+            selectedValue={year.toString()}
+            onValueChange={(value) => setYear(parseInt(value))}
+          >
+            <Picker.Item label="2019" value="2019" />
+            <Picker.Item label="2020" value="2020" />
+          </Picker>
+        </Item>
+      </View>
     </List>
   );
 }

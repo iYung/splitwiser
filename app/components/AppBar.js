@@ -23,7 +23,7 @@ import { View } from "react-native";
 
 export default function AppBar() {
   return (
-    <Header>
+    <Header hasTabs>
       <Body>
         <Title>Splitwiser</Title>
       </Body>

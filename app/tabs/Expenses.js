@@ -17,6 +17,7 @@ import {
 } from "react-native";
 
 import { SwipeListView } from "react-native-swipe-list-view";
+import MonthPicker from "../components/MonthPicker";
 
 const wait = (timeout) => {
   return new Promise((resolve) => {
@@ -28,7 +29,7 @@ export default function Expenses() {
   const [selected2, setCount] = useState(undefined);
 
   const [listData, setListData] = useState(
-    Array(5)
+    Array(15)
       .fill("")
       .map((_, i) => ({ key: `${i}`, text: `item #${i}` }))
   );
@@ -80,20 +81,63 @@ export default function Expenses() {
     <View>
       <List>
         <ListItem itemDivider>
+          <Text>Ivan owes Amanda</Text>
+        </ListItem>
+        <ListItem>
+          <Text>$100</Text>
+        </ListItem>
+        <MonthPicker />
+        <ListItem itemDivider>
           <Text>Expenses</Text>
         </ListItem>
       </List>
-      <SwipeListView
-        disableRightSwipe
-        data={listData}
-        renderItem={renderItem}
-        renderHiddenItem={renderHiddenItem}
-        rightOpenValue={-75}
-        previewRowKey={"0"}
-        previewOpenValue={-40}
-        previewOpenDelay={3000}
-        onRowDidOpen={onRowDidOpen}
-      />
+      <List>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+      </List>
     </View>
   );
 }

@@ -25,6 +25,7 @@ import AppBar from "./components/AppBar";
 import Router from "./tabs";
 import NewExpenseModal from "./components/NewExpenseModal";
 import NewRecurringExpenseModal from "./components/NewRecurringExpenseModal";
+import BottomNav from "./components/BottomNav";
 
 export default class App extends React.Component {
   constructor(props) {
@@ -53,15 +54,16 @@ export default class App extends React.Component {
         <Container>
           <AppBar />
 
-          <View style={{ flex: 1 }}>
+          <Content>
             <Router />
-          </View>
+          </Content>
+
+          <Footer />
 
           <NewExpenseModal />
           <NewRecurringExpenseModal />
-
-          <Footer />
         </Container>
+        <BottomNav />
       </Provider>
     );
   }

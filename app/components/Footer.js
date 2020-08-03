@@ -7,7 +7,10 @@ import {
   View,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
-import { setNewExpenseModal, setNewRecurringExpenseModal } from "../redux/actions";
+import {
+  setNewExpenseModal,
+  setNewRecurringExpenseModal,
+} from "../redux/actions";
 
 import BottomNav from "./BottomNav";
 import MonthPicker from "./MonthPicker";
@@ -18,8 +21,7 @@ export default function Footer() {
   const dispatch = useDispatch();
   return (
     <View>
-      {tabState.tab == 1 && <MonthPicker />}
-      {tabState.tab == 1 && (
+      {tabState.tab == 0 && (
         <TouchableOpacity onPress={() => dispatch(setNewExpenseModal(true))}>
           <View
             style={{
@@ -33,8 +35,10 @@ export default function Footer() {
           </View>
         </TouchableOpacity>
       )}
-      {tabState.tab == 2 && (
-        <TouchableOpacity onPress={() => dispatch(setNewRecurringExpenseModal(true))}>
+      {tabState.tab == 1 && (
+        <TouchableOpacity
+          onPress={() => dispatch(setNewRecurringExpenseModal(true))}
+        >
           <View
             style={{
               height: 60,
@@ -47,7 +51,6 @@ export default function Footer() {
           </View>
         </TouchableOpacity>
       )}
-      <BottomNav />
     </View>
   );
 }

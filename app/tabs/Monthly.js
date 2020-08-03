@@ -19,46 +19,10 @@ import {
 import { SwipeListView } from "react-native-swipe-list-view";
 
 export default function Monthly() {
-
   const [listData, setListData] = useState(
     Array(5)
       .fill("")
       .map((_, i) => ({ key: `${i}`, text: `item #${i}` }))
-  );
-
-  const closeRow = (rowMap, rowKey) => {
-    if (rowMap[rowKey]) {
-      rowMap[rowKey].closeRow();
-    }
-  };
-
-  const deleteRow = (rowMap, rowKey) => {
-    closeRow(rowMap, rowKey);
-    const newData = [...listData];
-    const prevIndex = listData.findIndex((item) => item.key === rowKey);
-    newData.splice(prevIndex, 1);
-    setListData(newData);
-  };
-
-  const onRowDidOpen = (rowKey) => {
-    console.log("This row opened", rowKey);
-  };
-
-  const renderItem = (data) => (
-    <View style={styles.rowFront}>
-      <Text>I am {data.item.text} in a SwipeListView</Text>
-    </View>
-  );
-
-  const renderHiddenItem = (data, rowMap) => (
-    <View style={styles.rowBack}>
-      <TouchableOpacity
-        style={[styles.backRightBtn, styles.backRightBtnRight]}
-        onPress={() => deleteRow(rowMap, data.item.key)}
-      >
-        <Text style={styles.backTextWhite}>Delete</Text>
-      </TouchableOpacity>
-    </View>
   );
 
   return (
@@ -67,18 +31,53 @@ export default function Monthly() {
         <ListItem itemDivider>
           <Text>Monthly Expenses</Text>
         </ListItem>
+
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Simon Mignolet</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Nathaniel Clyne</Text>
+        </ListItem>
+        <ListItem>
+          <Text>Dejan Lovren</Text>
+        </ListItem>
       </List>
-      <SwipeListView
-        disableRightSwipe
-        data={listData}
-        renderItem={renderItem}
-        renderHiddenItem={renderHiddenItem}
-        rightOpenValue={-75}
-        previewRowKey={"0"}
-        previewOpenValue={-40}
-        previewOpenDelay={3000}
-        onRowDidOpen={onRowDidOpen}
-      />
     </View>
   );
 }
