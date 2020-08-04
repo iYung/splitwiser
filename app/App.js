@@ -64,7 +64,6 @@ export default class App extends React.Component {
           <NewExpenseModal />
           <NewRecurringExpenseModal />
           <DeleteModal />
-
         </Container>
         <BottomNav />
       </Provider>

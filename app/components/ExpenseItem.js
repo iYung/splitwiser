@@ -12,14 +12,18 @@ export default function ExpenseItem(props) {
     <ListItem>
       <View style={{ flexDirection: "row" }}>
         <Body>
-  <Text>{props.title}</Text>
-          <Text note>{props.month} {props.day} by {props.payer}</Text>
+          <Text>{props.title}</Text>
+          <Text note>
+            {props.month} {props.day} by {props.payer}
+          </Text>
         </Body>
         <Right style={{ paddingRight: 19 }}>
           <Text note>{props.amount}</Text>
           <Text note>{props.totalAmount}</Text>
         </Right>
-        <Button onPress={() => dispatch(setDeleteModal(true, props.id, props.title))}>
+        <Button
+          onPress={() => dispatch(setDeleteModal(true, props.id, props.title))}
+        >
           <Icon name="md-trash" />
         </Button>
       </View>

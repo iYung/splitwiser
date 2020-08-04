@@ -1,12 +1,5 @@
 import React, { useState } from "react";
-import {
-  Icon,
-  Text,
-  ListItem,
-  Picker,
-  Item,
-  List,
-} from "native-base";
+import { Icon, Text, ListItem, Picker, Item, List } from "native-base";
 import { useSelector, useDispatch } from "react-redux";
 import { View } from "react-native";
 

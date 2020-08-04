@@ -3,7 +3,7 @@ import { SET_DELETE_MODAL } from "../actionTypes";
 const initialState = {
   open: false,
   id: null,
-  name: null
+  name: null,
 };
 
 export default function (state = initialState, action) {
@@ -12,7 +12,7 @@ export default function (state = initialState, action) {
       return {
         open: action.payload.open,
         id: action.payload.id,
-        name: action.payload.name
+        name: action.payload.name,
       };
     }
     default:

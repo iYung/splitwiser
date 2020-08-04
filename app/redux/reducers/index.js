@@ -10,5 +10,5 @@ export default combineReducers({
   newExpenseModal,
   newRecurringExpenseModal,
   deleteModal,
-  previousEntry
+  previousEntry,
 });

@@ -3,7 +3,7 @@ import {
   SET_NEW_EXPENSE_MODAL,
   SET_NEW_RECURRING_EXPENSE_MODAL,
   SET_DELETE_MODAL,
-  SET_PREVIOUS_ENTRY
+  SET_PREVIOUS_ENTRY,
 } from "./actionTypes";
 
 export const changeTab = (tab) => ({
@@ -32,7 +32,7 @@ export const setDeleteModal = (open, id, name) => ({
   payload: {
     open: open,
     id: id,
-    name: name
+    name: name,
   },
 });
 
@@ -40,6 +40,6 @@ export const setPreviousEntry = (split, payer) => ({
   type: SET_PREVIOUS_ENTRY,
   payload: {
     split: split,
-    payer: payer
+    payer: payer,
   },
 });
