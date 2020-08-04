@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import {
   setNewExpenseModal,
   setNewRecurringExpenseModal,
+  getPreviousEntry,
 } from "../redux/actions";
 
 export default function Footer() {
@@ -13,7 +14,12 @@ export default function Footer() {
   return (
     <View>
       {tabState.tab == 0 && (
-        <TouchableOpacity onPress={() => dispatch(setNewExpenseModal(true))}>
+        <TouchableOpacity
+          onPress={() => {
+            dispatch(setNewExpenseModal(true));
+            dispatch(getPreviousEntry());
+          }}
+        >
           <View
             style={{
               height: 60,
@@ -28,7 +34,10 @@ export default function Footer() {
       )}
       {tabState.tab == 1 && (
         <TouchableOpacity
-          onPress={() => dispatch(setNewRecurringExpenseModal(true))}
+          onPress={() => {
+            dispatch(setNewRecurringExpenseModal(true));
+            dispatch(getPreviousEntry());
+          }}
         >
           <View
             style={{

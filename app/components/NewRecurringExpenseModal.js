@@ -3,7 +3,10 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Dialog from "react-native-dialog";
 
-import { setNewRecurringExpenseModal } from "../redux/actions";
+import {
+  setNewRecurringExpenseModal,
+  updatePreviousEntry,
+} from "../redux/actions";
 
 export default function NewRecurringExpenseModal() {
   const newRecurringExpenseModalState = useSelector(
@@ -61,7 +64,12 @@ export default function NewRecurringExpenseModal() {
       {cost > 0 && name != "" && split > 0 && (
         <Dialog.Button
           label="Confirm"
-          onPress={() => dispatch(setNewRecurringExpenseModal(false))}
+          onPress={() => {
+            setCost(0);
+            setName("");
+            dispatch(updatePreviousEntry(split, payer));
+            dispatch(setNewRecurringExpenseModal(false));
+          }}
         />
       )}
       <Dialog.Button

@@ -6,6 +6,22 @@ import {
   SET_PREVIOUS_ENTRY,
 } from "./actionTypes";
 
+import { AsyncStorage } from "react-native";
+
+async function _storeData(payer, split) {
+  await AsyncStorage.setItem("payer", payer ? "ivan" : "amanda");
+
+  await AsyncStorage.setItem("split", split.toString());
+}
+
+async function _fetchData() {
+  var payer = await AsyncStorage.getItem("payer");
+  payer = payer ? payer : "ivan";
+  var split = await AsyncStorage.getItem("split");
+  split = split ? split : "50";
+  return { payer, split };
+}
+
 export const changeTab = (tab) => ({
   type: CHANGE_TAB,
   payload: {
@@ -43,3 +59,19 @@ export const setPreviousEntry = (split, payer) => ({
     payer: payer,
   },
 });
+
+export function updatePreviousEntry(payer, split) {
+  return function (dispatch) {
+    return _storeData(payer, split).then(() =>
+      dispatch(setPreviousEntry(payer, split))
+    );
+  };
+}
+
+export function getPreviousEntry() {
+  return function (dispatch) {
+    return _fetchData().then((payer, split) =>
+      dispatch(setPreviousEntry(payer == "ivan", parseFloat(split)))
+    );
+  };
+}

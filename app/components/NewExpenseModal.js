@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Dialog from "react-native-dialog";
 
-import { setNewExpenseModal } from "../redux/actions";
+import { setNewExpenseModal, updatePreviousEntry } from "../redux/actions";
 
 export default function NewExpenseModal() {
   const newExpenseModalState = useSelector((state) => state.newExpenseModal);
@@ -59,7 +59,12 @@ export default function NewExpenseModal() {
       {cost > 0 && name != "" && split > 0 && (
         <Dialog.Button
           label="Confirm"
-          onPress={() => dispatch(setNewRecurringExpenseModal(false))}
+          onPress={() => {
+            setCost(0);
+            setName("");
+            dispatch(updatePreviousEntry(split, payer));
+            dispatch(setNewExpenseModal(false));
+          }}
         />
       )}
       <Dialog.Button
@@ -67,7 +72,7 @@ export default function NewExpenseModal() {
         onPress={() => {
           setCost(0);
           setName("");
-          dispatch(setNewRecurringExpenseModal(false));
+          dispatch(setNewExpenseModal(false));
         }}
       />
     </Dialog.Container>

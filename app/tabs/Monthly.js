@@ -17,6 +17,7 @@ import {
 } from "react-native";
 
 import { SwipeListView } from "react-native-swipe-list-view";
+import ExpenseItem from "../components/ExpenseItem";
 
 export default function Monthly() {
   const [listData, setListData] = useState(
@@ -32,51 +33,33 @@ export default function Monthly() {
           <Text>Monthly Expenses</Text>
         </ListItem>
 
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Simon Mignolet</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Nathaniel Clyne</Text>
-        </ListItem>
-        <ListItem>
-          <Text>Dejan Lovren</Text>
-        </ListItem>
+        <ExpenseItem
+          title="Rent"
+          month="August"
+          day="1"
+          payer="Ivan"
+          amount="$100"
+          totalAmount="$1000"
+          id="123"
+        />
+        <ExpenseItem
+          title="Rent"
+          month="August"
+          day="1"
+          payer="Ivan"
+          amount="$100"
+          totalAmount="$1000"
+          id="123"
+        />
+        <ExpenseItem
+          title="Rent"
+          month="August"
+          day="1"
+          payer="Ivan"
+          amount="$100"
+          totalAmount="$1000"
+          id="123"
+        />
       </List>
     </View>
   );
