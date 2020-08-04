@@ -96,9 +96,9 @@ export default function Expenses() {
         <ListItem itemDivider>
           <Text>Expenses</Text>
         </ListItem>
-        <ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" />
-        <ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" />
-        <ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" />
+        <ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" id="123" />
+<ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" id="123"  />
+        <ExpenseItem title="Rent" month="August" day="1" payer="Ivan" amount="$100" totalAmount="$1000" id="123" />
       </List>
     </View>
   );

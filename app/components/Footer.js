@@ -1,9 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Text } from "native-base";
 import {
-  StyleSheet,
   TouchableOpacity,
-  RefreshControl,
   View,
 } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
@@ -12,11 +10,7 @@ import {
   setNewRecurringExpenseModal,
 } from "../redux/actions";
 
-import BottomNav from "./BottomNav";
-import MonthPicker from "./MonthPicker";
-
 export default function Footer() {
-  const [selected2, setCount] = useState(undefined);
   const tabState = useSelector((state) => state.tabs);
   const dispatch = useDispatch();
   return (

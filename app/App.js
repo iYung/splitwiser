@@ -25,6 +25,7 @@ import AppBar from "./components/AppBar";
 import Router from "./tabs";
 import NewExpenseModal from "./components/NewExpenseModal";
 import NewRecurringExpenseModal from "./components/NewRecurringExpenseModal";
+import DeleteModal from "./components/DeleteModal";
 import BottomNav from "./components/BottomNav";
 
 export default class App extends React.Component {
@@ -62,6 +63,8 @@ export default class App extends React.Component {
 
           <NewExpenseModal />
           <NewRecurringExpenseModal />
+          <DeleteModal />
+
         </Container>
         <BottomNav />
       </Provider>
