@@ -4,6 +4,7 @@ import {
   SET_NEW_RECURRING_EXPENSE_MODAL,
   SET_DELETE_MODAL,
   SET_PREVIOUS_ENTRY,
+  CHANGE_TOTAL,
 } from "./actionTypes";
 
 import { AsyncStorage } from "react-native";
@@ -20,6 +21,13 @@ async function _fetchData() {
   var split = await AsyncStorage.getItem("split");
   split = split ? split : "50";
   return { payer, split };
+}
+
+async function _getTotal() {
+  var response = await fetch(
+    "https://us-central1-splitwiser-d578f.cloudfunctions.net/getTotal"
+  ).then((response) => response.json());
+  return response.result;
 }
 
 export const changeTab = (tab) => ({
@@ -73,5 +81,21 @@ export function getPreviousEntry() {
     return _fetchData().then((payer, split) =>
       dispatch(setPreviousEntry(payer == "ivan", parseFloat(split)))
     );
+  };
+}
+
+export const changeTotal = (total) => ({
+  type: CHANGE_TOTAL,
+  payload: {
+    total: total,
+  },
+});
+
+export function getTotal() {
+  return function (dispatch) {
+    _getTotal().then((total) => {
+      dispatch(changeTotal(total));
+      console.log(total);
+    });
   };
 }

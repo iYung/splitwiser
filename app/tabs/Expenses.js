@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Container,
   Text,
@@ -21,9 +21,9 @@ import {
   View,
 } from "react-native";
 import ExpenseItem from "../components/ExpenseItem";
-
-import { SwipeListView } from "react-native-swipe-list-view";
+import { useDispatch, useSelector } from "react-redux";
 import MonthPicker from "../components/MonthPicker";
+import { getTotal } from "../redux/actions";
 
 const wait = (timeout) => {
   return new Promise((resolve) => {
@@ -32,7 +32,13 @@ const wait = (timeout) => {
 };
 
 export default function Expenses() {
-  const [refreshing, setRefreshing] = React.useState(false);
+  const dispatch = useDispatch();
+
+  const totalState = useSelector((state) => state.total);
+
+  useEffect(() => {
+    dispatch(getTotal());
+  }, []);
 
   return (
     <View>
@@ -41,12 +47,39 @@ export default function Expenses() {
           <Text>Ivan owes Amanda</Text>
         </ListItem>
         <ListItem>
-          <Text>$100</Text>
+          <Text>${totalState.total}</Text>
         </ListItem>
         <MonthPicker />
         <ListItem itemDivider>
           <Text>Expenses</Text>
         </ListItem>
+        <ExpenseItem
+          title="Rent"
+          month="August"
+          day="1"
+          payer="Ivan"
+          amount="$100"
+          totalAmount="$1000"
+          id="123"
+        />
+        <ExpenseItem
+          title="Rent"
+          month="August"
+          day="1"
+          payer="Ivan"
+          amount="$100"
+          totalAmount="$1000"
+          id="123"
+        />
+        <ExpenseItem
+          title="Rent"
+          month="August"
+          day="1"
+          payer="Ivan"
+          amount="$100"
+          totalAmount="$1000"
+          id="123"
+        />
         <ExpenseItem
           title="Rent"
           month="August"
